@@ -2,7 +2,7 @@
 
 ![Project preview](media/project-preview.jpg)
 
-A mobile-controlled microcontroller car built to explore embedded programming, motor control, wireless commands, and hardware–software integration.
+A mobile-controlled STM32 microcontroller car built in C using STM32CubeIDE to explore embedded programming, motor control, wireless commands, and hardware–software integration.
 
 > **Project status:** Documentation scaffold created from the demonstration video. Add the original firmware and confirm the exact hardware before treating the build instructions as complete.
 
@@ -53,11 +53,11 @@ The video clearly shows a microcontroller-based control board, a dual-motor chas
 
 ## Software
 
-Place the original project or firmware files in `src/`. Then document:
+The firmware was developed in **C** using **STM32CubeIDE**. Place the original STM32CubeIDE project or firmware files in `src/`. Then document:
 
-1. The IDE or toolchain and its version.
-2. The target microcontroller or development board.
-3. Required libraries.
+1. The STM32CubeIDE version used.
+2. The exact STM32 microcontroller or development board.
+3. Required HAL drivers or libraries.
 4. Build, flash, and connection steps.
 5. The commands accepted by the vehicle.
 
@@ -66,9 +66,9 @@ Place the original project or firmware files in `src/`. Then document:
 The exact commands depend on the original firmware and toolchain. After adding them, replace this section with reproducible instructions, for example:
 
 ```text
-1. Open the firmware project in <IDE>.
-2. Select <microcontroller/board> as the target.
-3. Connect the board and flash the firmware.
+1. Import the firmware project into STM32CubeIDE.
+2. Select the exact STM32 microcontroller or board as the target.
+3. Connect the board with an ST-LINK programmer and flash the firmware.
 4. Power the motor circuit using <verified power source>.
 5. Pair the mobile controller with <wireless module>.
 6. Send the documented movement commands.
@@ -96,4 +96,3 @@ Verify motor voltage, current limits, polarity, grounding, and driver specificat
 ## License
 
 This project is available under the [MIT License](LICENSE).
-
