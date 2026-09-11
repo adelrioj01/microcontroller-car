@@ -1,0 +1,31 @@
+# Build output
+build/
+dist/
+out/
+Debug/
+Release/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.user
+*.suo
+*.swp
+
+# Compiled artifacts
+*.o
+*.obj
+*.elf
+*.hex
+*.bin
+*.map
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+
+# Secrets and local configuration
+.env
+.env.*
+secrets.*
+
