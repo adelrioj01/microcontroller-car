@@ -1,5 +1,5 @@
 # Firmware source
 
-Add the original C source code and STM32CubeIDE project configuration files to this directory.
+The complete C source code and STM32CubeIDE project are stored in [`../firmware`](../firmware).
 
-Before publishing, check that the files contain no credentials, device addresses that should remain private, absolute paths, generated build output, or personal information.
+Generated `Debug/` build output is intentionally excluded from version control.

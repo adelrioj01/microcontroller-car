@@ -1,10 +1,10 @@
-# Microcontroller Car
+# STM32 Bluetooth & Autonomous Car
 
 ![Project preview](media/project-preview.jpg)
 
-A mobile-controlled STM32 microcontroller car built in C using STM32CubeIDE to explore embedded programming, motor control, wireless commands, and hardware–software integration.
+A mobile-controlled and autonomous car built around an **STM32L152RBT6**. The firmware is written in **C** using **STM32CubeIDE** and combines Bluetooth/UART commands, PWM motor control, ultrasonic obstacle detection, adjustable speed, and autonomous navigation.
 
-> **Project status:** Documentation scaffold created from the demonstration video. Add the original firmware and confirm the exact hardware before treating the build instructions as complete.
+> **Project status:** The complete STM32CubeIDE firmware is included. Exact commercial part numbers for the Bluetooth, ultrasonic, and motor-driver modules still need confirmation.
 
 ## Demo
 
@@ -16,6 +16,9 @@ The demonstration shows the development environment, mobile command interface, a
 
 - Mobile command interface
 - Two-wheel motor control
+- Autonomous obstacle-avoidance mode
+- Ultrasonic distance measurement and proximity warning
+- ADC-based speed selection
 - Embedded firmware development and debugging
 - Breadboard-based prototype for accessible testing
 - End-to-end hardware and software demonstration
@@ -24,9 +27,10 @@ The demonstration shows the development environment, mobile command interface, a
 
 ```mermaid
 flowchart LR
-    A[Mobile controller] --> B[Wireless interface]
-    B --> C[Microcontroller]
-    C --> D[Motor driver]
+    A[Mobile controller] --> B[Bluetooth UART]
+    B --> C[STM32L152RBT6]
+    F[Ultrasonic sensor] --> C
+    C --> D[PWM motor driver]
     D --> E[Left and right motors]
 ```
 
@@ -43,35 +47,56 @@ microcontroller-car/
 ├── media/
 │   ├── demo.mp4
 │   └── project-preview.jpg
+├── firmware/
+│   ├── Car_project.ioc
+│   ├── Core/
+│   └── Drivers/
 └── src/
     └── README.md
 ```
 
 ## Hardware
 
-The video clearly shows a microcontroller-based control board, a dual-motor chassis, a motor-control board, a breadboard prototype, and a mobile control interface. Exact part numbers are intentionally left unconfirmed. See [docs/components.md](docs/components.md) for the component checklist.
+The project targets an **STM32L152RBT6** in an LQFP64 package. It uses USART1 for the wireless control channel, TIM4 PWM outputs for the motors, TIM2/TIM3 for ultrasonic timing, ADC1 for speed selection, and a GPIO-controlled proximity buzzer. See [docs/components.md](docs/components.md) for the component checklist.
 
 ## Software
 
-The firmware was developed in **C** using **STM32CubeIDE**. Place the original STM32CubeIDE project or firmware files in `src/`. Then document:
+The complete STM32CubeIDE project is in [`firmware/`](firmware). The application logic is primarily in [`firmware/Core/Src/main.c`](firmware/Core/Src/main.c).
 
-1. The STM32CubeIDE version used.
-2. The exact STM32 microcontroller or development board.
-3. Required HAL drivers or libraries.
-4. Build, flash, and connection steps.
-5. The commands accepted by the vehicle.
+### Bluetooth command map
+
+| Command | Action |
+| --- | --- |
+| `1` | Stop |
+| `2` | Forward |
+| `3` | Reverse |
+| `4` | Turn left |
+| `5` | Turn right |
+| `6` | Autonomous mode |
+
+The STM32 sends a short text confirmation over UART after receiving each command.
+
+### Development environment
+
+1. Language: C
+2. IDE/toolchain: STM32CubeIDE
+3. Target MCU: STM32L152RBT6
+4. Framework: STM32L1 HAL and CMSIS drivers included in the repository
+5. Programming/debug interface: SWD/ST-LINK
 
 ## Getting started
 
 The exact commands depend on the original firmware and toolchain. After adding them, replace this section with reproducible instructions, for example:
 
 ```text
-1. Import the firmware project into STM32CubeIDE.
-2. Select the exact STM32 microcontroller or board as the target.
-3. Connect the board with an ST-LINK programmer and flash the firmware.
-4. Power the motor circuit using <verified power source>.
-5. Pair the mobile controller with <wireless module>.
-6. Send the documented movement commands.
+1. Clone or download this repository.
+2. In STM32CubeIDE, choose **File → Import → Existing Projects into Workspace**.
+3. Select the `firmware` directory.
+4. Build the project and connect the STM32 board through ST-LINK/SWD.
+5. Flash the firmware.
+6. Power the motor circuit using the verified supply for your hardware.
+7. Pair the mobile controller with the UART Bluetooth module.
+8. Send commands `1` through `6` using the map above.
 ```
 
 ## What I learned

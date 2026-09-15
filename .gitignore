@@ -4,6 +4,8 @@ dist/
 out/
 Debug/
 Release/
+**/Debug/
+**/Release/
 
 # IDE and editor files
 .vscode/
@@ -28,4 +30,3 @@ Thumbs.db
 .env
 .env.*
 secrets.*
-
