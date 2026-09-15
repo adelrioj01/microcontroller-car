@@ -6,11 +6,11 @@ Complete these details before publishing the repository broadly.
 
 - Microcontroller: STM32L152RBT6
 - Programming language: C
-- IDE/toolchain: STM32CubeIDE — exact version to confirm
-- Wireless module and protocol: Bluetooth module over UART/USART1 — model to confirm
-- Motor driver:
-- Sensors:
-- Power source:
+- IDE/toolchain: STM32CubeIDE
+- Wireless module and protocol: HC-05 Bluetooth module over USART1 at 9600 baud, 8-N-1
+- Motor driver: L298N dual H-bridge module
+- Sensors: HC-SR04 ultrasonic sensor and 10 kΩ potentiometer
+- Power source: USB for the controller and a 6 V battery pack for the motors, with a common ground
 
 ## Command map
 
@@ -25,8 +25,8 @@ Complete these details before publishing the repository broadly.
 
 ## Build notes
 
-- Pin assignments:
-- Required libraries:
-- Flashing procedure:
-- Pairing procedure:
-- Known limitations:
+- Pin assignments: documented in `docs/components.md`
+- Required libraries: STM32L1 HAL and CMSIS drivers included in `firmware/Drivers`
+- Flashing procedure: import `firmware/` into STM32CubeIDE, build, and program through the board's integrated ST-LINK interface
+- Pairing procedure: pair the phone with the HC-05 and open a Bluetooth serial terminal configured for the module
+- Known limitations: open-loop motor control; fixed obstacle thresholds; no wheel encoders or closed-loop speed feedback
