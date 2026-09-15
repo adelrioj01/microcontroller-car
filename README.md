@@ -42,22 +42,22 @@ microcontroller-car/
 ├── LICENSE
 ├── .gitignore
 ├── docs/
-│   ├── components.md
-│   └── project-notes.md
+│   ├── hardware.md
+│   └── firmware.md
 ├── media/
-│   ├── demo.mp4
 │   └── project-preview.jpg
 ├── firmware/
-│   ├── Car_project.ioc
+│   ├── STM32_Car.ioc
 │   ├── Core/
-│   └── Drivers/
-└── src/
-    └── README.md
+│   ├── Drivers/
+│   └── STM32L152RBTX_FLASH.ld
+├── LICENSE
+└── README.md
 ```
 
 ## Hardware
 
-The project uses an **STM32L-DISCOVERY** development board with an **STM32L152RBT6** microcontroller. It uses an HC-05 Bluetooth module on USART1, an L298N dual H-bridge for the motors, an HC-SR04 ultrasonic sensor, a 10 kΩ speed-control potentiometer, and an active buzzer. See [docs/components.md](docs/components.md) for the complete bill of materials and signal mapping.
+The project uses an **STM32L-DISCOVERY** development board with an **STM32L152RBT6** microcontroller. It uses an HC-05 Bluetooth module on USART1, an L298N dual H-bridge for the motors, an HC-SR04 ultrasonic sensor, a 10 kΩ speed-control potentiometer, and an active buzzer. See [docs/hardware.md](docs/hardware.md) for the complete bill of materials and signal mapping.
 
 ## Software
 
@@ -86,8 +86,6 @@ The STM32 sends a short text confirmation over UART after receiving each command
 
 ## Getting started
 
-The exact commands depend on the original firmware and toolchain. After adding them, replace this section with reproducible instructions, for example:
-
 ```text
 1. Clone or download this repository.
 2. In STM32CubeIDE, choose **File → Import → Existing Projects into Workspace**.
@@ -110,9 +108,9 @@ The exact commands depend on the original firmware and toolchain. After adding t
 
 - Replace the breadboard prototype with a more permanent assembly
 - Add a graphical wiring diagram
-- Document the communication protocol
-- Add obstacle detection or autonomous behavior
-- Add repeatable firmware build instructions
+- Add wheel encoders and closed-loop speed control
+- Make obstacle thresholds configurable
+- Add automated firmware build validation
 
 ## Safety
 

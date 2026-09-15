@@ -25,7 +25,7 @@ Complete these details before publishing the repository broadly.
 
 ## Build notes
 
-- Pin assignments: documented in `docs/components.md`
+- Pin assignments: documented in `docs/hardware.md`
 - Required libraries: STM32L1 HAL and CMSIS drivers included in `firmware/Drivers`
 - Flashing procedure: import `firmware/` into STM32CubeIDE, build, and program through the board's integrated ST-LINK interface
 - Pairing procedure: pair the phone with the HC-05 and open a Bluetooth serial terminal configured for the module
