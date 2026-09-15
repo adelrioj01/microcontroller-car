@@ -44,15 +44,13 @@ microcontroller-car/
 ├── docs/
 │   ├── hardware.md
 │   └── firmware.md
-├── media/
-│   └── project-preview.jpg
 ├── firmware/
 │   ├── STM32_Car.ioc
 │   ├── Core/
 │   ├── Drivers/
 │   └── STM32L152RBTX_FLASH.ld
-├── LICENSE
-└── README.md
+└── media/
+    └── project-preview.jpg
 ```
 
 ## Hardware
