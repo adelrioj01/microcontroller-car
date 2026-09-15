@@ -1,6 +1,6 @@
 # STM32 Bluetooth & Autonomous Car
 
-![Project preview](media/project-preview.jpg)
+[![Watch the full-quality project demo on Google Drive](media/project-preview.jpg)](https://drive.google.com/file/d/1J5WSHYant_4N3TDPWJy_1uTx17psHI0A/view?usp=sharing)
 
 A mobile-controlled and autonomous car built around an **STM32L152RBT6**. The firmware is written in **C** using **STM32CubeIDE** and combines Bluetooth/UART commands, PWM motor control, ultrasonic obstacle detection, adjustable speed, and autonomous navigation.
 
@@ -8,9 +8,9 @@ A mobile-controlled and autonomous car built around an **STM32L152RBT6**. The fi
 
 ## Demo
 
-[Watch the demonstration](media/demo.mp4)
+### [Watch the full-quality demonstration on Google Drive](https://drive.google.com/file/d/1J5WSHYant_4N3TDPWJy_1uTx17psHI0A/view?usp=sharing)
 
-The demonstration shows the development environment, mobile command interface, assembled two-wheel chassis, control electronics, and functional testing.
+Click the project image above or the link to watch the high-quality video. The demonstration shows the STM32CubeIDE development environment, mobile command interface, assembled two-wheel chassis, control electronics, and functional testing.
 
 ## Features
 
