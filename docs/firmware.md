@@ -1,6 +1,4 @@
-# Project notes
-
-Complete these details before publishing the repository broadly.
+# Firmware reference
 
 ## Technical details
 
