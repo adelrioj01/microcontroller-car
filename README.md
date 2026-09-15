@@ -4,7 +4,7 @@
 
 A mobile-controlled and autonomous car built around an **STM32L152RBT6**. The firmware is written in **C** using **STM32CubeIDE** and combines Bluetooth/UART commands, PWM motor control, ultrasonic obstacle detection, adjustable speed, and autonomous navigation.
 
-> **Project status:** The complete STM32CubeIDE firmware is included. Exact commercial part numbers for the Bluetooth, ultrasonic, and motor-driver modules still need confirmation.
+> **Project status:** The complete STM32CubeIDE firmware and a compatible hardware bill of materials are included.
 
 ## Demo
 
@@ -57,7 +57,7 @@ microcontroller-car/
 
 ## Hardware
 
-The project targets an **STM32L152RBT6** in an LQFP64 package. It uses USART1 for the wireless control channel, TIM4 PWM outputs for the motors, TIM2/TIM3 for ultrasonic timing, ADC1 for speed selection, and a GPIO-controlled proximity buzzer. See [docs/components.md](docs/components.md) for the component checklist.
+The project uses an **STM32L-DISCOVERY** development board with an **STM32L152RBT6** microcontroller. It uses an HC-05 Bluetooth module on USART1, an L298N dual H-bridge for the motors, an HC-SR04 ultrasonic sensor, a 10 kΩ speed-control potentiometer, and an active buzzer. See [docs/components.md](docs/components.md) for the complete bill of materials and signal mapping.
 
 ## Software
 
@@ -94,8 +94,8 @@ The exact commands depend on the original firmware and toolchain. After adding t
 3. Select the `firmware` directory.
 4. Build the project and connect the STM32 board through ST-LINK/SWD.
 5. Flash the firmware.
-6. Power the motor circuit using the verified supply for your hardware.
-7. Pair the mobile controller with the UART Bluetooth module.
+6. Power the motor circuit from a 6 V battery pack and power the development board through USB.
+7. Pair the mobile controller with the HC-05 Bluetooth module.
 8. Send commands `1` through `6` using the map above.
 ```
 
@@ -109,7 +109,7 @@ The exact commands depend on the original firmware and toolchain. After adding t
 ## Planned improvements
 
 - Replace the breadboard prototype with a more permanent assembly
-- Add a wiring diagram and verified bill of materials
+- Add a graphical wiring diagram
 - Document the communication protocol
 - Add obstacle detection or autonomous behavior
 - Add repeatable firmware build instructions
